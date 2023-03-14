@@ -1,0 +1,14 @@
+---
+- name: downnload and start httpd
+  hosts: all
+  become: root
+  tasks: 
+  - name: install httpd
+    yum: 
+        name: httpd
+        state: latest 
+  - name: start httpd and enable
+    service: 
+        name: httpd
+        state: started
+        enabled: yes
